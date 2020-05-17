@@ -1,0 +1,57 @@
+h1
+{
+    font-size: 4em;
+    margin: 0;
+    text-decoration: underline;
+}
+
+#scoreboard
+{
+    display: block;
+}
+
+#score_entries
+{
+   display: none;
+   border-collapse: collapse;
+   border: 1px solid black;
+   margin: 10px auto;
+}
+
+#score_entries th
+{
+    text-decoration: underline;
+}
+
+#score_entries tr
+{
+    border: 1px solid black;
+}
+
+#score_input
+{
+    display: none;
+}
+
+#info
+{
+    margin-left: 10px;
+}
+
+#tetris
+{
+    display: inline-flex;
+    height: 70vh;
+}
+
+#score_form
+{
+    margin: 0;
+    display: none;
+}
+
+body
+{
+    text-align: center;
+}
+
