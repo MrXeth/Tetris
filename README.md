@@ -14,19 +14,16 @@ To do that I use the following format: x1y1-x2y2-x3y3. Every offset preserves th
 To manage bitwise rotations the program uses bitwise operations to inverse the needed x/y coordinates using the following simple rotation matrices:
 
 90°
-|-|-|
 |0|-1|  
 |-|-|   
 |1|0| 
 
 180°
-|-|-|
 |0|1|
 |-|-|
 |1|0|
 
 270°
-|-|-|
 |0|1|
 |-|-|
 |-1|0|
