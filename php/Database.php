@@ -42,10 +42,10 @@
         $firstRun = true;
         while($row = mysqli_fetch_row($result))
         {
-            echo ($firstRun ? "" : str_repeat("\t", 5))."<tr>\n";
-            echo str_repeat("\t", 6)."<td>".$row[0]."</td>\n";
-            echo str_repeat("\t", 6)."<td>".$row[1]."</td>\n";
-            echo str_repeat("\t", 5)."</tr>\n";
+            echo ($firstRun ? "" : str_repeat("\t", 6))."<tr>\n";
+            echo str_repeat("\t", 7)."<td>".$row[0]."</td>\n";
+            echo str_repeat("\t", 7)."<td>".$row[1]."</td>\n";
+            echo str_repeat("\t", 6)."</tr>\n";
             if($firstRun)
             {
                 $firstRun = false;

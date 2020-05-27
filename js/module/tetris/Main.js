@@ -8,7 +8,6 @@ import Tetrominos from "./Tetrominos.js";
  * @author MrXeth
  */
 class Main {
-
     /**
      * constructor
      */
@@ -25,8 +24,16 @@ class Main {
         let none = Utils.convertToHexColorString(Tetrominos.none.color);
         this._canvas.style.backgroundColor = none;
 
+        /**
+         * the next block canvas
+         */
         this._nextBlock = document.getElementById("next_block")
         this._nextBlock.style.backgroundColor = none;
+
+        /**
+         * if a new promise for looping has to be created
+         */
+        this._createPromise = true;
 
         this._resizeListener();
         this._register();
@@ -112,12 +119,18 @@ class Main {
     {
         while(this._gameField._checkMove(0,0))
         {
+            this._createPromise = true;
             if(!this._gameField.move(0,1))
             {
                 this._gameField.place();
             }
             this._repaint();
-            await new Promise(resolve => setTimeout(resolve, 50/3 * this._getFramesPerGridcell(this._gameField.level)));
+
+            while(this._createPromise)
+            {
+                this._createPromise = false;
+                await new Promise(resolve => setTimeout(resolve, 50/3 * this._getFramesPerGridcell(this._gameField.level)));
+            }
         }
         document.getElementById("score_form").value = this._gameField.score;
         document.getElementById("score_input").style.display = "block";
@@ -142,6 +155,8 @@ class Main {
                 this._resizeListener();
                 break;
             case "keydown":
+                // wait one tick to make it more more realistic
+                this._createPromise = true;
                 this._keyListener(evt);
                 break;
         }

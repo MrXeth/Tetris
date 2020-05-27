@@ -17,25 +17,27 @@
         <!-- game -->
         <div id="tetris">
             <canvas id="gamefield"></canvas>
+			
             <!-- score -->
             <div id="info">
                 <canvas id="next_block"></canvas>
                 <div id="level">level: 0</div>
                 <div id="score">score: 0</div>  
-                <!-- scoreboard -->
-            <div id="scoreboard">
-                <button id="show_scoreboard" type="button">show scoreboard</button>
-                <table id="score_entries">
-                    <tr>
-                        <th>name</th>
-                        <th>score</th>
-                    </tr>
-                    <?php
-                        include("./php/Database.php");
-                        printScores();
-                    ?>
-                </table>
-            </div>
+                
+				<!-- scoreboard -->
+				<div id="scoreboard">
+					<button id="show_scoreboard" type="button">show scoreboard</button>
+					<table id="score_entries">
+						<tr>
+							<th>name</th>
+							<th>score</th>
+						</tr>
+						<?php
+							include("./php/Database.php");
+							printScores();
+						?>
+					</table>
+				</div>
             </div>
         </div>
         
